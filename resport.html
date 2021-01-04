@@ -1,0 +1,471 @@
+<!DOCTYPE html>
+<html>
+<style>
+
+
+
+    .form-inline {
+  
+  display: flex;
+  flex-flow: row wrap;
+  align-items: center;
+}
+
+body, button, input, optgroup, select, textarea {
+    font-family: "Noto Sans","Trebuchet MS",Helvetica,sans-serif;
+}
+
+  text, textarea {
+    font-family: Noto Sans,Trebuchet MS,Helvetica,sans-serif;
+    font-size: 1em;
+    color: #333;
+    min-width: 3em;
+    width: 100%;
+    padding: calc(.575ex - 1px) 3px;
+    border: 1px solid #949494;
+    border-radius: 1px;
+    box-sizing: border-box;
+}
+input.day {
+  max-width: 3em;
+}
+input.year {
+  max-width: 5em;
+}
+select.month {
+  max-width: 10em;
+}
+
+select#grade {
+  max-width: 3em;
+}
+
+#lvlctr, #status, #aacsbType, select#contrtype {
+  max-width: 25em;
+}
+#source, #audience {
+  max-width: 10em;
+}
+
+/* Add some margins for each label */
+.form-inline label {
+  margin: 5px 10px 5px 0;
+}
+
+/* Style the input fields */
+.form-inline input {
+  vertical-align: middle;
+  margin: 5px 10px 5px 0;
+  padding: 10px;
+  background-color: #fff;
+  border: 1px solid #ddd;
+}
+
+/* Style the submit button */
+.form-inline button {
+  padding: 10px 20px;
+  background-color: dodgerblue;
+  border: 1px solid #ddd;
+  color: white;
+}
+
+.form-inline button:hover {
+  background-color: royalblue;
+}
+
+/* Add responsiveness - display the form controls vertically instead of horizontally on screens that are less than 800px wide */
+@media (max-width: 800px) {
+  .form-inline input {
+    margin: 10px 0;
+  }
+
+  .form-inline {
+    flex-direction: column;
+    align-items: stretch;
+  }
+}
+input[type=text],input[type=textarea], select {
+  height: 3em;
+  margin: 8px 8px;
+  display: block;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+}
+
+
+input[type=submit] {
+  width: 100%;
+  background-color: #4CAF50;
+  color: white;
+  padding: 14px 20px;
+  margin: 8px 0;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+.largeText {
+  width: 70%;
+}
+
+input[type=submit]:hover {
+  background-color: #45a049;
+}
+
+div {
+  border-radius: 5px;
+  background-color: #f2f2f2;
+  padding: 20px;
+}
+</style>
+
+<body>
+
+<h3>Edit Intellectual Contribution</h3>
+
+<div>
+  <form action="/action_page.php">
+    <label for="context_key">NSU Works Context_Key</label>
+    <input type="text" id="context_key" name="key" placeholder="">
+    
+    <label for="contr_type">Contribution Type</label>
+    <select id="contr_type" name="contrtype">
+            <option value=""></option>    
+      <option value="">Book Review</option>
+      <option value="">Book, Chapter in Non-Scholarly Book-New</option>
+      <option value="">Book, Chapter in Non-Scholarly Book-Revised</option>
+      <option value="">Book, Chapter in Scholarly Book-New</option>
+      <option value="">Book, Chapter in Scholarly Book-Revised</option>
+      <option value="">Book, Chapter in Textbook Book-New</option>
+      <option value="">Book, Chapter in Textbook Book-Revised</option>
+      <option value="">Book, Non-Scholarly-New</option>
+      <option value="">Book, Non-Scholarly-Revised</option>
+      <option value="">Book, Scholarly-New</option>
+      <option value="">Book, Scholarly-Revised</option>
+      <option value="">Book, Textbook-New</option>
+      <option value="">Book, Textbook-Revised</option>
+      <option value="">Broadcast media</option>
+      <option value="">Cited research</option>
+      <option value="">Conference proceeding</option>
+      <option value="">Instructor's manual</option>
+      <option value="">Invited commentary or editorial</option>
+      <option value="">Journal Article, Academic Journal</option>
+      <option value="">Journal Article, In-house Journal</option>
+      <option value="">Journal Article, Professional Journal</option>
+      <option value="">Journal Article, Public or trade Journal</option>
+      <option value="">Law Review</option>
+      <option value="">Magazine/Trade Publication</option>
+      <option value="">Manuscript</option>
+      <option value="">Material Regarding New Courses/Curricula</option>
+      <option value="">Monograph</option>
+      <option value="">Newsletter</option>
+      <option value="">Newspaper</option>
+      <option value="">Regular column in Journal or Newspaper</option>
+      <option value="">Research report</option>
+      <option value="">Software</option>
+      <option value="">Software, Instructional</option>
+    </select>
+
+    <label for="aacsb">AACSB Classification (School of Business only)</label>
+    <select id="aacsb" name="aacsbType">
+      <option value=""></option>
+      <option value="">Basic or discovery scholarship</option>
+      <option value="">Applied or integration/application scholarship</option>
+      <option value="">Teaching and learning scholarship</option>
+    </select>
+
+    <label for="status">Current Status</label>
+    <select id="status" name="currstatus">
+            <option value=""></option>    
+      <option value="">In preparation; Not Yet Submitted</option>
+      <option value="">Working paper</option>
+      <option value="">Submitted</option>
+      <option value="">Revising to resubmit</option>
+      <option value="">Not accepted</option>
+      <option value="">Accepted</option>
+      <option value="">Published</option>
+    </select>
+
+    <label for="title">Title of Contribution</label>
+    <input type="text" id="title" name="title" placeholder="" class="largeText">
+    
+    
+    <label for="doi">DOI Number</label>
+    <input type="text" id="doi" name="doi" placeholder="">
+
+    <label for="pmid">PMID Number</label>
+    <input type="text" id="pmid" name="pmid" placeholder="">
+
+    <label for="title_larger">If this is part of a larger work (e.g., a chapter in a book), Title of Larger Work</label>
+    <input type="text" id="title_larger" name="title_larger" placeholder="" class="largeText">
+    
+    <label for="publisher">Journal/Publisher/Proceedings Publisher</label>
+    <input type="text" id="publisher" name="publisher" placeholder="">
+   
+    <label for="city">City and State of Journal/Publisher</label>
+    <input type="text" id="city" name="city" placeholder="">
+
+    <label for="volume">Volume</label>
+    <input type="text" id="volume" name="volume" placeholder="">
+
+    <label for="issue">Issue Number/Edition</label>
+    <input type="text" id="issue" name="issue" placeholder="">
+
+    <label for="pages">Page Numbers or Numbers of Pages</label>
+    <input type="text" id="pages" name="pages" placeholder="">
+
+    <label for="web">Web Address</label>
+    <input type="text" id="web" name="web" placeholder="">
+
+    <label for="editor">Editor</label>
+    <input type="text" id="editor" name="editor" placeholder="">
+
+    <label for="isbn">ISNB/ISSN Number/Case #</label>
+    <input type="text" id="isbn" name="isbn" placeholder="">
+
+    <label for="pubmedID">PubMed Central ID Number</label>
+    <input type="text" id="pubmedID" name="pubmedID" placeholder="">
+
+    <label for="audience">Audience of Circulation</label>
+    <select id="audience" name="audience">
+            <option value=""></option>    
+      <option value="">International</option>
+      <option value="">National</option>
+      <option value="">Regional</option>
+      <option value="">State</option>
+      <option value="">Local</option>
+    </select>
+<div class ="form-inline">
+    <label for="peerev" >Was this peer-reviewed/refereed?</label>
+    <select id="peerev" name="peerev" >
+            <option value=""></option>    
+            <option value="">Yes</option>
+      <option value="">No</option>
+    </select>
+
+    <label for="editrev">AACSB: Was this contribution editorially reviewed?</label>
+    <select id="editrev" name="editrev"  >
+            <option value=""></option>    
+      <option value="">Yes</option>
+      <option value="">No</option>
+    </select>
+
+   
+
+  </div> 
+  <div class ="form-inline">
+  <label for="public">Is this publicly available?</label>
+  <input type='radio' name="public">Yes</input>
+  <input type='radio' name="public" >No</input></div>
+    <label for="abstract">Abstract/Synopsis</label><br>
+    <textarea id="abstract" name="abstract" rows="4" cols="50" class="largeText"></textarea>
+
+
+    
+    <h2><span>Expected Date of Submission</span></h2>
+    <div class="form-inline"> 
+            <label for="month1">Month</label>
+            <select id="month1" class="month">
+                <option value=""></option>
+              <option value="">January</option>
+              <option value="">February</option>
+              <option value="">March</option>
+              <option value="">April</option>
+              <option value="">May</option>
+              <option value="">June</option>
+              <option value="">July</option>
+              <option value="">August</option>
+              <option value="">September</option>
+              <option value="">October</option>
+              <option value="">November</option>
+              <option value="">December</option>
+            </select>
+            <label for="day1">Day</label>
+            <input type="text" id="day1" class="day" placeholder="">
+            <label for="year1">Year</label>
+            <input type="text" id="year1" class="year" placeholder="">
+    </div>
+
+    <h2><span>Date Submitted</span></h2>
+    <div class="form-inline"> 
+            <label for="month2">Month</label>
+            <select id="month2" class="month">
+                <option value=""></option>
+                    <option value="">January</option>
+                    <option value="">February</option>
+                    <option value="">March</option>
+                    <option value="">April</option>
+                    <option value="">May</option>
+                    <option value="">June</option>
+                    <option value="">July</option>
+                    <option value="">August</option>
+                    <option value="">September</option>
+                    <option value="">October</option>
+                    <option value="">November</option>
+                    <option value="">December</option>
+            </select>
+            <label for="day2">Day</label>
+            <input type="text" id="day2" class="day" placeholder="">
+            <label for="year2">Year</label>
+            <input type="text" id="year2" class="year" placeholder="">
+    </div>
+    
+    <h2><span>Date Accepted</span></h2>
+    <div class="form-inline"> 
+            <label for="month3">Month</label>
+            <select id="month3" class="month">
+                <option value=""></option>
+                    <option value="">January</option>
+                    <option value="">February</option>
+                    <option value="">March</option>
+                    <option value="">April</option>
+                    <option value="">May</option>
+                    <option value="">June</option>
+                    <option value="">July</option>
+                    <option value="">August</option>
+                    <option value="">September</option>
+                    <option value="">October</option>
+                    <option value="">November</option>
+                    <option value="">December</option>
+            </select>
+            <label for="year3">Year</label>
+            <input type="text" id="year3" class="year" placeholder="">
+    </div>
+
+    <h2><span>Date Published</span></h2>
+    <div class="form-inline"> 
+            <label for="month4">Month</label>
+            <select id="month4" class="month">
+                    <option value=""></option>
+                    <option value="">January</option>
+                    <option value="">February</option>
+                    <option value="">March</option>
+                    <option value="">April</option>
+                    <option value="">May</option>
+                    <option value="">June</option>
+                    <option value="">July</option>
+                    <option value="">August</option>
+                    <option value="">September</option>
+                    <option value="">October</option>
+                    <option value="">November</option>
+                    <option value="">December</option>
+            </select>
+            <label for="year4">Year</label>
+            <input type="text" id="year4" class="year" placeholder="">
+    </div>
+
+    <h2><span>Impact</span></h2>
+    <h3>Mission Linkage Categories:</h3> 
+    <h4>If the item you just entered has mande a 
+      significant difference (innovation, enagagement, or impact) in on or more mission-related
+    categories below, please check the appropriate boxes.</h4>
+    <input type="checkbox">
+    <span class="checkmark"></span>
+    <label class="container">Academic/Teaching Excellence</label><br>
+    <input type="checkbox">
+    <span class="checkmark"></span>
+    <label class="container">Innovation</label><br>
+    <input type="checkbox">
+    <span class="checkmark"></span>   
+    <label class="container">Opportunity/Engagement</label><br>
+    <input type="checkbox">
+    <span class="checkmark"></span>    
+    <label class="container">Scholarship/Research</label></br>
+    <input type="checkbox">
+    <span class="checkmark"></span>    
+    <label class="container">Diversity</label><br>
+    <input type="checkbox">
+    <span class="checkmark"></span>    
+    <label class="container">Community Service</label><br>
+        
+                            
+               
+        <h4><span>Impact Date (If not date-specific, please use today's date)
+          </span></h4>
+        <div class="form-inline">                 <label for="month5">Month</label>
+                <select id="month5" class="month">
+                  <option value=""></option>    
+                  <option value="">January</option>
+                  <option value="">February</option>
+                  <option value="">March</option>
+                  <option value="">April</option>
+                  <option value="">May</option>
+                  <option value="">June</option>
+                  <option value="">July</option>
+                  <option value="">August</option>
+                  <option value="">September</option>
+                  <option value="">October</option>
+                  <option value="">November</option>
+                  <option value="">December</option>
+                </select>
+                <label for="year5">Year</label>
+                <input type="text" id="year5" class="year" placeholder="">
+        </div>
+
+        <h3><span>Level of Contribution</span></h3>
+        <select id="lvlctr" name="lvlctr">
+                <option value=""></option>    
+                <option value="">ABDC (if selected, include grade)</option>
+                <option value="">Faculty Research Committee Approved List</option>
+                <option value="">Harzing</option>
+        </select>
+
+        <h3><span>Grade</span></h3>
+        <select id="grade" name="grade">
+                <option value=""></option>
+                <option value="">A*</option>
+                <option value="">A</option>
+                <option value="">B</option>
+                <option value="">C</option>
+        </select>
+
+
+        <span><h3><label for="cits">Citation Count from Google Scholar</label></h3>
+        <input type="text" id="cits" name="cits" placeholder=""></span>
+
+
+        <h3><span>Date Count was obtained
+          </span></h3>
+        <div class="form-inline"> 
+                <label for="month6">Month</label>
+                <select id="month6" class="month">
+                        <option value=""></option>
+                        <option value="">January</option>
+                        <option value="">February</option>
+                        <option value="">March</option>
+                        <option value="">April</option>
+                        <option value="">May</option>
+                        <option value="">June</option>
+                        <option value="">July</option>
+                        <option value="">August</option>
+                        <option value="">September</option>
+                        <option value="">October</option>
+                        <option value="">November</option>
+                        <option value="">December</option>
+                </select>
+                <label for="day6">Day</label>
+                <input type="text" id="day6" class="day" placeholder="">
+                <label for="year6">Year</label>
+                <input type="text" id="year4" class="year" placeholder="">
+        </div>
+
+        <label for="accrate">Journal Acceptance Rate (if no rate is available, use N/A)</label>
+        <input type="text" id="accrate" name="accrate" placeholder="">
+
+
+        <h2><span>Source
+          </span></h2>
+        <select id="source" name="source">Source
+                <option value=""></option>    
+            <option value="">Cabells</option>
+                <option value="">Other</option>
+                <option value="">NA</option>
+        </select>
+
+
+
+    <input type="submit" value="Submit">
+  </form>
+</div>
+
+</body>
